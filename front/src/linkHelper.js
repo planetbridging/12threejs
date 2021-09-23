@@ -32,7 +32,7 @@ export function getHttps(link,type){
         });
 }
 
-export function getHttp(link,type){
+export function getHttp(link,type,jBool){
     return new Promise((resolve, reject) => { 
         http.get(link, (resp) => {
             let data = '';
@@ -48,9 +48,15 @@ export function getHttp(link,type){
                 //console.log(JSON.parse(data).id);
                 
                 //let getUser = await getUserInfo(JSON.parse(data).id);
-                var j = JSON.parse(data);
-                var e = { d: j, t:type};
-                resolve(e);
+                if(jBool){
+                    var j = JSON.parse(data);
+                    var e = { d: j, t:type};
+                    resolve(e);
+                }else{
+                    var e = { d: data, t:type};
+                    resolve(e);
+                }
+                
               }catch(e){
                 console.log("token failed");
                 resolve("");
@@ -63,13 +69,14 @@ export function getHttp(link,type){
         });
 }
 
+
 export async function getMultiHttps(link,v){
   var data = await getHttps(link,v);
   return data;
 }
 
 
-export async function getMultiHttp(link,v){
-    var data = await getHttp(link,v);
+export async function getMultiHttp(link,v,j){
+    var data = await getHttp(link,v,j);
     return data;
   }

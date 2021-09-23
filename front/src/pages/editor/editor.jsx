@@ -24,9 +24,9 @@ class EditorPage extends React.Component {
 
 
     load = async () =>{
-        var check1 = await lhelper.getMultiHttp("http://localhost:456/editor/editor/hello.html","");
-        var check2 = await lhelper.getMultiHttp("http://pressback.space:456/editor/editor/hello.html","");
-        console.log(check1);
+        var check1 = await lhelper.getMultiHttp("http://localhost:456/editor/editor/hello.html","",false);
+        var check2 = await lhelper.getMultiHttp("http://pressback.space:456/editor/editor/hello.html","",false);
+        console.log(check2);
     }
 
     renderRemoteEditor = () =>{
