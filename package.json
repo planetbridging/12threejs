@@ -1,0 +1,24 @@
+{
+  "name": "12threejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/planetbridging/12threejs.git"
+  },
+  "author": "Shannon Setter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/planetbridging/12threejs/issues"
+  },
+  "homepage": "https://github.com/planetbridging/12threejs#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-subdomain": "^1.0.5",
+    "uuid": "^8.3.2"
+  }
+}
