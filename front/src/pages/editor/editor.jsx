@@ -16,7 +16,7 @@ class EditorPage extends React.Component {
     render(){
         return (
             <div className="">
-               wefew
+               {this.renderRemoteEditor()}
             </div>
         )
     }
@@ -24,13 +24,31 @@ class EditorPage extends React.Component {
 
 
     load = async () =>{
-        var check1 = await lhelper.getMultiHttp("http://ping.localhost:456/","",true);
-        var check2 = await lhelper.getMultiHttp("http://ping.pressback.space:456","",true);
-        console.log(check2);
+        const {loaded,found} = this.state;
+        try{
+            var check = await lhelper.getMultiHttp("http://ping.pressback.space:456/ping","",true);
+            if(check["d"]["ping"] == "ping"){
+                //loaded = true;
+                //found = "http://editor.pressback.space:456/editor/editor/";
+                this.setState({loaded: true,found: "http://editor.pressback.space:456/editor/editor/"});
+            }
+            console.log("loaded");
+        }catch(e){
+            console.log("broke");
+            console.log(e);
+        }
+        console.log("done");
+        
     }
 
     renderRemoteEditor = () =>{
-        <iframe src="http://localhost:456/editor/" />
+        const {loaded,found} = this.state;
+        if(found){
+            return <iframe src={found} />;
+        }else{
+            return <p>loading</p>
+        }
+        
     }
 }
 
