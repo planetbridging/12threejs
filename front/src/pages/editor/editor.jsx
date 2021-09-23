@@ -24,8 +24,8 @@ class EditorPage extends React.Component {
 
 
     load = async () =>{
-        var check1 = await lhelper.getMultiHttp("http://localhost:456/editor/editor/hello.html","",false);
-        var check2 = await lhelper.getMultiHttp("http://pressback.space:456/editor/editor/hello.html","",false);
+        var check1 = await lhelper.getMultiHttp("http://ping.localhost:456/","",true);
+        var check2 = await lhelper.getMultiHttp("http://ping.pressback.space:456","",true);
         console.log(check2);
     }
 

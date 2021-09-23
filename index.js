@@ -33,9 +33,9 @@ var uuid = require("uuid"),
   editor.use(
     subdomain("*.editor", express.static(__dirname + "/three.js-dev/"))
   );
-  editor.use(subdomain("editor", editor));
   
-ping.use(subdomain("ping", editor));
+editor.use(subdomain("editor", editor));  
+ping.use(subdomain("ping", ping));
 
   //app.use("/", express.static(__dirname + "/three.js-dev/"));
   app.use("/", express.static(__dirname + "/front/build/"));
