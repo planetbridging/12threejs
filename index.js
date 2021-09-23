@@ -17,7 +17,8 @@ var uuid = require("uuid"),
     );
     next();
   });
-  ping.get('/' ,async(req, res) => {
+
+  ping.get('/ping' ,async(req, res) => {
     return res.status(200).send({ping: "ping"});
   });
 
@@ -33,9 +34,10 @@ var uuid = require("uuid"),
   editor.use(
     subdomain("*.editor", express.static(__dirname + "/three.js-dev/"))
   );
-  
-editor.use(subdomain("editor", editor));  
-ping.use(subdomain("ping", ping));
+
+  app.use(subdomain("editor", editor));  
+
+  app.use(subdomain("ping", ping));
 
   //app.use("/", express.static(__dirname + "/three.js-dev/"));
   app.use("/", express.static(__dirname + "/front/build/"));
